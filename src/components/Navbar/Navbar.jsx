@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg'
 const Navbar = () => {
+    const loca = useLocation()
+    const location = loca.pathname;
     return (
-        <div className='bg-hero bg-cover bg-center bg-no-repeat'>
-            <div className="navbar text-white font-semibold text-lg">
+        <div className='bg-hero bg-cover  bg-center bg-no-repeat'>
+            <div className={`navbar ${location === '/'?'text-white' : 'text-black bg-slate-500'}  font-semibold text-lg`}>
                 <div className="navbar-start ml-8">
                     <img src={logo} alt="" />
                     <div className="dropdown">
