@@ -3,7 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../components/Home/Home";
 import LoginPage from "../components/LoginPage/LoginPage";
 import Register from "../components/Register/Register";
-import Recipes from "../components/Recipes/Recipes";
+import Recipes from "../components/chefRecipes/chefRecipes";
 
 const router = createBrowserRouter([
     {
