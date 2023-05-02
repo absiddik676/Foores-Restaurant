@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const LoginPage = () => {
     const handleSubmit = () =>{
@@ -56,9 +56,7 @@ const LoginPage = () => {
                     <hr className="my-6 border-gray-300 w-full" />
                     <p className="mt-8">
                         Don't have an account?{" "}
-                        <a href="#" className="text-primary font-medium">
-                            Sign up
-                        </a>
+                        <Link className='text-blue-700 font-semibold' to='/register'>Sign up</Link>  
                     </p>
                 </div>
             </div>

@@ -2,11 +2,11 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg'
 const Navbar = () => {
-    const loca = useLocation()
-    const location = loca.pathname;
+    const location = useLocation()
+    const currentLocation = location.pathname;
     return (
         <div className='bg-hero bg-cover  bg-center bg-no-repeat'>
-            <div className={`navbar ${location === '/'?'text-white' : 'text-black bg-slate-500'}  font-semibold text-lg`}>
+            <div className={`navbar ${currentLocation === '/'?'text-white' : 'text-black bg-slate-500'}  font-semibold text-lg`}>
                 <div className="navbar-start ml-8">
                     <img src={logo} alt="" />
                     <div className="dropdown">
@@ -37,8 +37,8 @@ const Navbar = () => {
                     {/* <p>{user?.displayName}</p> */}
                     <ul className="menu menu-horizontal flex gap-7 px-1 ml-9">
                         <Link>Home</Link>
-                        <Link>About</Link>
-                        <Link>Room</Link>
+                        <Link>Blog</Link>
+                        <Link to='/login'>Login</Link>
                         {/* {
                         user ? <button onClick={handleLogOut}>Log out</button> : <Link to='/login'> Login</Link>
                     } */}
