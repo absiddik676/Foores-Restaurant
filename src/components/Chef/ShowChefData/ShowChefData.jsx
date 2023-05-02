@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ShowChefData = ({ chef }) => {
-    console.log(chef);
-    const { chefPicture, chefName, yearsOfExperience, likes ,numberOfRecipes} = chef;
+    const { id,chefPicture, chefName, yearsOfExperience, likes ,numberOfRecipes} = chef;
+    console.log(id);
     return (
         <div>
             <div className="w-full max-w-sm mx-auto m-5 bg-white rounded-md shadow-md overflow-hidden">
@@ -20,7 +21,7 @@ const ShowChefData = ({ chef }) => {
                     </div>
                     <div className="flex justify-center mt-4">
                         
-                        <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">View Recipes</button>
+                        <Link to={`/recipes/${id}`}><button  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">View Recipes</button></Link>
                     </div>
                 </div>
             </div>

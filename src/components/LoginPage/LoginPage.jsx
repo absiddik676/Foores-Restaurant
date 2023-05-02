@@ -3,17 +3,24 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const LoginPage = () => {
-    const handleSubmit = () =>{
-
+ 
+    const handleLogin = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
     }
+
+
     return (
         <div>
-            <div className="flex h-screen bg-gray-200">
+            <div className="flex py-10 bg-gray-100">
                 <div className="w-full max-w-md m-auto bg-white rounded-lg border border-gray-300 shadow-default py-10 px-16">
                     <h1 className="text-2xl font-medium text-primary mt-4 mb-8 text-center">
                         Welcome back!
                     </h1>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleLogin}>
                         <div className="mb-4">
                             <label
                                 htmlFor="email"
@@ -26,7 +33,7 @@ const LoginPage = () => {
                                 className="border rounded-md py-2 px-3 text-gray-700 w-full"
                                 id="email"
                                 placeholder="you@example.com"
-                                
+                                name='email'
                                 required
                             />
                         </div>
@@ -42,7 +49,7 @@ const LoginPage = () => {
                                 className="border rounded-md py-2 px-3 text-gray-700 w-full"
                                 id="password"
                                 placeholder="********"
-                                
+                                name='password'
                                 required
                             />
                         </div>
