@@ -2,26 +2,37 @@
 import React, { useState } from 'react';
 import { BsFillHeartFill } from "react-icons/bs";
 import { useLoaderData } from 'react-router-dom';
-import { AiOutlineHeart,AiOutlineLike,AiFillLike } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { FcLike } from "react-icons/fc";
+import { toast } from 'react-hot-toast';
+import Test from './Test';
 
 const chefRecipes = () => {
     const data = useLoaderData()
-    console.log(data);
-    const { chefPicture, chefName, yearsOfExperience, likes, numberOfRecipes, short_bio, recipes
+
+    const { id, chefPicture, chefName, yearsOfExperience, likes, numberOfRecipes, short_bio, recipes
     } = data
-    const [like,setLike] = useState(false);
-    const [likesCount , setLikeCount] = useState(likes)
-    console.log(like);
-    const handleLike = () =>{
+
+    const [like, setLike] = useState(false);
+    const [likesCount, setLikeCount] = useState(likes);
+    const [buttonsDisabled, setButtonsDisabled] = useState({});
+
+    const handleLike = () => {
         setLike(!like);
-        if(like){
+        if (like) {
             setLikeCount(likesCount - 1);
-        }else{
-            setLikeCount(likesCount + 1);  
+        } else {
+            setLikeCount(likesCount + 1);
         }
-       
+    }
+
+    const handleClick = (index) => {
+        setButtonsDisabled({ ...buttonsDisabled, [index]: true });
+        toast.success(`${name} added your favorite list`)
 
     }
+    
+
     return (
         <div className='mx-10  mt-10'>
 
@@ -41,9 +52,9 @@ const chefRecipes = () => {
                             <p className="text-gray-400 text-sm">Number of Recipes: {numberOfRecipes}</p>
                         </div>
                         <div className='flex items-center gap-2'>
-                            <p className="text-gray-400 text-md">{like?'Dislike':'Like'} </p>
+                            <p className="text-gray-400 text-md">{like ? 'Dislike' : 'Like'} </p>
                             {
-                                like?<AiFillLike onClick={ handleLike} className='text-2xl cursor-pointer text-blue-600' />:<AiOutlineLike onClick={ handleLike} className='text-2xl cursor-pointer' />
+                                like ? <AiFillLike type='btn' disabled={buttonsDisabled[id]} onClick={handleLike} className='text-2xl cursor-pointer text-blue-600' /> : <AiOutlineLike onClick={handleLike} className='text-2xl cursor-pointer' />
                             }
                         </div>
                     </div>
@@ -79,12 +90,17 @@ const chefRecipes = () => {
                                 <div className="text-sm font-medium text-gray-900">{recipe.rating}</div>
                             </td>
                             <td className="px-6  py-4 ">
-                                <AiOutlineHeart className='text-2xl ml-3 cursor-pointer' />
+                                {/* <AiOutlineHeart onClick={()=>handleFavorite(recipe.name,recipe.id)} className='text-2xl ml-3 cursor-pointer' /> */}
+                                <button disabled={buttonsDisabled[index]}
+                                    onClick={() => handleClick(index)}
+                                    className={`${buttonsDisabled[index] ? 'cursor-not-allowed' : 'cursor-pointer'}`}>{buttonsDisabled[index] ? <FcLike className='text-2xl' /> : <AiOutlineHeart className='text-2xl' />}</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+
+            <Test />
 
         </div>
     );
