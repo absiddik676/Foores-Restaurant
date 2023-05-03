@@ -13,7 +13,7 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const PhotoUrl = form.PhotoUrl.value;
+        let PhotoUrl = form.PhotoUrl.value;
 
         if (password.length === 0 || email.length === 0) {
             setError("Please Enter Your Email and Password");
@@ -22,6 +22,10 @@ const Register = () => {
         else if (password.length < 6) {
             setError('password must have character');
             return
+        }
+
+        if(PhotoUrl.length === 0){
+            PhotoUrl = 'https://picsum.photos/200/300'
         }
         console.log(password.length);
         createUser(email, password)

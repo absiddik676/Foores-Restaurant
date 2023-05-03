@@ -9,6 +9,7 @@ const LoginPage = () => {
     const [error,setError] = useState('')
     const handleLogin = e => {
         e.preventDefault();
+        setError('')
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
@@ -18,8 +19,13 @@ const LoginPage = () => {
             console.log(result.user);
         })
         .catch(error =>{
-            console.log(error);
-            setError(error.message)
+            if (error.code === "auth/wrong-password") {
+                setError("Invalid password. Please try again.");
+            }
+            else if(error.code === "auth/user-not-found"){
+                setError('User not found. Please try again.')
+            }
+            // console.log(error);
         })
         console.log(email, password);
     }

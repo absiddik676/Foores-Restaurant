@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ShowChefData = ({ chef }) => {
     const { id,chefPicture, chefName, yearsOfExperience, likes ,numberOfRecipes} = chef;
-    console.log(id);
     return (
         <div>
             <div className="w-full max-w-sm mx-auto m-5 bg-white rounded-md shadow-md overflow-hidden">

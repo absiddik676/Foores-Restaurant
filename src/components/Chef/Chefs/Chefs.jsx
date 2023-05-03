@@ -9,7 +9,6 @@ const Chefs = () => {
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
-    console.log(data);
     return (
         <div className='mx-11'>
             <h1 className='text-5xl text-center font-semibold'>Our best chef's</h1>

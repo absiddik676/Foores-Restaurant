@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 export const AuthContext = createContext(null)
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 const auth = getAuth(app)
@@ -16,8 +16,9 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
-    const updateNameAndPhoto = (name,photo='https://picsum.photos/200/300') =>{
+    const updateNameAndPhoto = (name ,photo ) =>{
         return updateProfile(auth.currentUser, {
+            
             displayName: name, photoURL: photo
           })
     }
@@ -32,6 +33,15 @@ const AuthProvider = ({children}) => {
     const signInWithGithub = () =>{
         return signInWithPopup(auth,githubProvider)
     }
+
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth,loggedUser=>{
+            setUser(loggedUser);
+        })
+        return ()=>{
+            unSubscribe()
+        }
+    },[])
 
     const authInfo = {
         user,
