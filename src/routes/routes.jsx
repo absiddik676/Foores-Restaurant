@@ -3,7 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Home from "../components/Home/Home";
 import LoginPage from "../components/LoginPage/LoginPage";
 import Register from "../components/Register/Register";
-import Recipes from "../components/chefRecipes/chefRecipes";
+import ChefRecipes from "../components/Chef/chefRecipes/chefRecipes";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         },
         {
             path:'recipes/:id',
-            element:<Recipes/>,
+            element:<ChefRecipes/>,
             loader:({ params })=> fetch(`http://localhost:3000/chefsDetails/${params.id}.json`)
 
         }

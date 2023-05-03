@@ -5,9 +5,8 @@ import { useLoaderData } from 'react-router-dom';
 import { AiOutlineHeart, AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
 import { toast } from 'react-hot-toast';
-import Test from './Test';
 
-const chefRecipes = () => {
+const ChefRecipes = () => {
     const data = useLoaderData()
 
     const { id, chefPicture, chefName, yearsOfExperience, likes, numberOfRecipes, short_bio, recipes
@@ -26,7 +25,7 @@ const chefRecipes = () => {
         }
     }
 
-    const handleClick = (index) => {
+    const handleClick = (index,name) => {
         setButtonsDisabled({ ...buttonsDisabled, [index]: true });
         toast.success(`${name} added your favorite list`)
 
@@ -92,18 +91,15 @@ const chefRecipes = () => {
                             <td className="px-6  py-4 ">
                                 {/* <AiOutlineHeart onClick={()=>handleFavorite(recipe.name,recipe.id)} className='text-2xl ml-3 cursor-pointer' /> */}
                                 <button disabled={buttonsDisabled[index]}
-                                    onClick={() => handleClick(index)}
+                                    onClick={() => handleClick(index,recipe.name)}
                                     className={`${buttonsDisabled[index] ? 'cursor-not-allowed' : 'cursor-pointer'}`}>{buttonsDisabled[index] ? <FcLike className='text-2xl' /> : <AiOutlineHeart className='text-2xl' />}</button>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-
-            <Test />
-
         </div>
     );
 };
 
-export default chefRecipes;
+export default ChefRecipes;

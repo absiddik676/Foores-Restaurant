@@ -1,9 +1,8 @@
 import React from 'react';
-import Header from '../components/Header/Header';
-import Navbar from '../share/Navbar/Navbar';
-import { Outlet, ScrollRestoration } from 'react-router-dom';
-import Footer from '../share/Footer/Footer';
+import { Outlet, ScrollRestoration } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
+import Navbar from '../share-components/Navbar/Navbar';
+import Footer from '../share-components/Footer/Footer';
 
 
 const MainLayout = () => {
