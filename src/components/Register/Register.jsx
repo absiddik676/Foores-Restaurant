@@ -4,7 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser, updateNameAndPhoto } = useContext(AuthContext)
+    const { createUser, updateNameAndPhoto,signInWithGoogle } = useContext(AuthContext)
     const [error, setError] = useState('')
     const handleCreateAccount = e => {
         e.preventDefault();
@@ -34,6 +34,16 @@ const Register = () => {
             })
         console.log(name, email, password, PhotoUrl);
 
+    }
+
+    const handleLoginWithGoogle = () =>{
+        signInWithGoogle()
+        .then(result =>{
+            console.log(result.user);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
 
 
@@ -73,7 +83,7 @@ const Register = () => {
                     <hr className="my-6 border-gray-300 w-full" />
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
-                        <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
+                        <button onClick={handleLoginWithGoogle} className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
                         <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
                     </div>
                 </div>

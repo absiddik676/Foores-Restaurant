@@ -5,7 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser,signInWithGoogle,signInWithGithub } = useContext(AuthContext)
     const [error,setError] = useState('')
     const handleLogin = e => {
         e.preventDefault();
@@ -22,6 +22,28 @@ const LoginPage = () => {
             setError(error.message)
         })
         console.log(email, password);
+    }
+
+
+    const handleLoginWithGoogle = () =>{
+        signInWithGoogle()
+        .then(result =>{
+            console.log(result.user);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
+
+
+    const handelLoginWithGithub = () =>{
+        signInWithGithub()
+        .then(result =>{
+            console.log(result);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
     }
 
     return (
@@ -79,8 +101,8 @@ const LoginPage = () => {
                     </p>
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
-                        <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
-                        <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
+                        <button onClick={handleLoginWithGoogle} className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
+                        <button onClick={handelLoginWithGithub} className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
                     </div>
                 </div>
             </div>
