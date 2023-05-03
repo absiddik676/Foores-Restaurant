@@ -4,9 +4,16 @@ import logo from '../../assets/img/logo.svg'
 import { AuthContext } from '../../provider/AuthProvider';
 const Navbar = () => {
     const location = useLocation()
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
     const currentLocation = location.pathname;
-    console.log(user);
+
+    const handleLogOut = () =>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>{
+            console.log(error);
+        })
+    }
     return (
         <div className='bg-hero bg-cover  bg-center bg-no-repeat'>
             <div className={`navbar ${currentLocation === '/'?'text-white' : 'text-black bg-slate-500'}  font-semibold text-lg`}>
@@ -42,12 +49,11 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal flex gap-7 px-1 items-center ml-9">
                         <Link>Home</Link>
                         <Link>Blog</Link>
-                        <Link to='/login'>Login</Link>
-                        {/* {
+                        {
                         user ? <button onClick={handleLogOut}>Log out</button> : <Link to='/login'> Login</Link>
-                    } */}
+                    }
 
-                        <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
+                        {user && <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />}
                     </ul>
                 </div>
 

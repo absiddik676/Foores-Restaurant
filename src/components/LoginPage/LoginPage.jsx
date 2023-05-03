@@ -1,12 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
     const { loginUser,signInWithGoogle,signInWithGithub } = useContext(AuthContext)
     const [error,setError] = useState('')
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from=location?.state?.from?.pathname || '/'
+
+
     const handleLogin = e => {
         e.preventDefault();
         setError('')
@@ -17,6 +22,7 @@ const LoginPage = () => {
         loginUser(email,password)
         .then(result =>{
             console.log(result.user);
+            navigate(from,{replace:true}) 
         })
         .catch(error =>{
             if (error.code === "auth/wrong-password") {
@@ -35,6 +41,7 @@ const LoginPage = () => {
         signInWithGoogle()
         .then(result =>{
             console.log(result.user);
+            navigate(from,{replace:true}) 
         })
         .catch(error =>{
             console.log(error);
@@ -46,6 +53,7 @@ const LoginPage = () => {
         signInWithGithub()
         .then(result =>{
             console.log(result);
+            navigate(from,{replace:true}) 
         })
         .catch(error =>{
             console.log(error);
