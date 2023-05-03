@@ -1,20 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
-    const { createUser } = useContext(AuthContext)
+    const { loginUser } = useContext(AuthContext)
+    const [error,setError] = useState('')
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
 
+        loginUser(email,password)
+        .then(result =>{
+            console.log(result.user);
+        })
+        .catch(error =>{
+            console.log(error);
+            setError(error.message)
+        })
         console.log(email, password);
     }
-    console.log(createUser);
 
     return (
         <div>
@@ -56,6 +64,7 @@ const LoginPage = () => {
                                 required
                             />
                         </div>
+                        <p className='text-red-400 py-3'>{error}</p>
                         <button
                             type="submit"
                             className="bg-primary hover:bg-primary-darker text-white font-bold py-2 px-4 rounded-full w-full"

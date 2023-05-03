@@ -4,7 +4,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser,updateNameAndPhoto } = useContext(AuthContext)
+    const { createUser, updateNameAndPhoto } = useContext(AuthContext)
     const [error, setError] = useState('')
     const handleCreateAccount = e => {
         e.preventDefault();
@@ -27,7 +27,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                updateNameAndPhoto(name,PhotoUrl)
+                updateNameAndPhoto(name, PhotoUrl)
             })
             .catch(error => {
                 console.log(error);
@@ -70,7 +70,7 @@ const Register = () => {
                         <p className='text-red-400'>{error}</p>
                         Already have an account? <Link className='text-blue-700 font-semibold ' to='/login'>Log in</Link>
                     </div>
-
+                    <hr className="my-6 border-gray-300 w-full" />
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
                         <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
