@@ -1,15 +1,27 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
+import React, { useState } from 'react';
 import { BsFillHeartFill } from "react-icons/bs";
 import { useLoaderData } from 'react-router-dom';
-import { AiOutlineHeart,AiOutlineLike } from "react-icons/ai";
+import { AiOutlineHeart,AiOutlineLike,AiFillLike } from "react-icons/ai";
 
 const chefRecipes = () => {
     const data = useLoaderData()
     console.log(data);
     const { chefPicture, chefName, yearsOfExperience, likes, numberOfRecipes, short_bio, recipes
     } = data
-    console.log(recipes);
+    const [like,setLike] = useState(false);
+    const [likesCount , setLikeCount] = useState(likes)
+    console.log(like);
+    const handleLike = () =>{
+        setLike(!like);
+        if(like){
+            setLikeCount(likesCount - 1);
+        }else{
+            setLikeCount(likesCount + 1);  
+        }
+       
+
+    }
     return (
         <div className='mx-10  mt-10'>
 
@@ -25,12 +37,14 @@ const chefRecipes = () => {
                     </div>
                     <div className="flex justify-between items-center">
                         <div>
-                            <p className="text-gray-400 text-sm">Likes: {likes}</p>
+                            <p className="text-gray-400 text-sm">Likes: {likesCount}</p>
                             <p className="text-gray-400 text-sm">Number of Recipes: {numberOfRecipes}</p>
                         </div>
                         <div className='flex items-center gap-2'>
-                            <p className="text-gray-400 text-sm">Like </p>
-                            <AiOutlineLike className='text-2xl cursor-pointer' />
+                            <p className="text-gray-400 text-md">{like?'Dislike':'Like'} </p>
+                            {
+                                like?<AiFillLike onClick={ handleLike} className='text-2xl cursor-pointer text-blue-600' />:<AiOutlineLike onClick={ handleLike} className='text-2xl cursor-pointer' />
+                            }
                         </div>
                     </div>
                 </div>
