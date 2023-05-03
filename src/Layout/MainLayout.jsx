@@ -9,12 +9,12 @@ const MainLayout = () => {
     return (
         <div>
             <Toaster />
-             <ScrollRestoration />
-            <Navbar/>
+            <ScrollRestoration />
+            <Navbar />
             <div className='-[calc(100vh-500px)]'>
-                <Outlet/>
+                <Outlet />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

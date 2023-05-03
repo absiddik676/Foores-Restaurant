@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const LoginPage = () => {
- 
-    const handleLogin = e =>{
+    const { createUser } = useContext(AuthContext)
+    const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
-    }
 
+        console.log(email, password);
+    }
+    console.log(createUser);
 
     return (
         <div>
@@ -63,8 +66,13 @@ const LoginPage = () => {
                     <hr className="my-6 border-gray-300 w-full" />
                     <p className="mt-8">
                         Don't have an account?{" "}
-                        <Link className='text-blue-700 font-semibold' to='/register'>Sign up</Link>  
+                        <Link className='text-blue-700 font-semibold' to='/register'>Sign up</Link>
                     </p>
+                    <div className="text-center my-4">Or sign in with</div>
+                    <div className="flex flex-col space-y-4">
+                        <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
+                        <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
+                    </div>
                 </div>
             </div>
         </div>
