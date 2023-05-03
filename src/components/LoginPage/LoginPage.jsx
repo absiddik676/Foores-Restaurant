@@ -33,7 +33,6 @@ const LoginPage = () => {
             }
             // console.log(error);
         })
-        console.log(email, password);
     }
 
 

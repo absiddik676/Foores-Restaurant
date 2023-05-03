@@ -35,6 +35,9 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error);
+                if(error.code === "auth/email-already-in-use"){
+                    setError('Email already in use')
+                }
             })
         console.log(name, email, password, PhotoUrl);
 

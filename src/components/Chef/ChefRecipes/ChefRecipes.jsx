@@ -38,7 +38,7 @@ const ChefRecipes = () => {
             <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden mx-auto w-full">
                 <div className="md:w-1/3 relative">
                     <img className="w-full h-auto object-cover object-center" src={chefPicture} alt="Chef" />
-                    <div className="absolute bottom-0 left-0 bg-red-500 text-white px-2 py-1 text-sm font-semibold rounded-bl-lg">{yearsOfExperience} Experience</div>
+                    <div className="absolute bottom-0 left-0 bg-red-500 text-white px-2 py-1 text-sm font-semibold rounded-bl-lg">{yearsOfExperience} year Experience</div>
                 </div>
                 <div className="md:w-2/3 flex flex-col justify-between p-6">
                     <div>
