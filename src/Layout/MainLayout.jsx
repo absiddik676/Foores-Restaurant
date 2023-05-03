@@ -9,7 +9,7 @@ const MainLayout = () => {
         <div>
              <ScrollRestoration />
             <Navbar/>
-            <div className='md:min-h-[calc(100vh-00px)]'>
+            <div className='-[calc(100vh-500px)]'>
                 <Outlet/>
             </div>
             <Footer/>
