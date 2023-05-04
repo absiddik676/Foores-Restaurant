@@ -17,7 +17,6 @@ const Chefs = () => {
             )
            
     }, [])
-    console.log(loading);
     return (
         <div className='lg:mx-11 mx-5'>
             <h1 className='text-5xl text-center font-semibold mb-8'>Expert Chefs</h1>

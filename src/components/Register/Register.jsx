@@ -27,13 +27,12 @@ const Register = () => {
         if(PhotoUrl.length === 0){
             PhotoUrl = 'https://picsum.photos/200/300'
         }
-        console.log(password.length);
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
                 updateNameAndPhoto(name, PhotoUrl);
                 e.target.reset();
-                
+
             })
             .catch(error => {
                 console.log(error);
@@ -41,7 +40,6 @@ const Register = () => {
                     setError('Email already in use')
                 }
             })
-        console.log(name, email, password, PhotoUrl);
 
     }
 

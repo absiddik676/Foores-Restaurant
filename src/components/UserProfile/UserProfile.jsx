@@ -19,19 +19,18 @@ const UserProfile = () => {
             console.log(error);
         })
 
-        console.log(name,photoURL);
     }
     return (
         <div className=' my-12 mx-10 '>
                <div className="flex flex-col items-center justify-center">
                 <h1 className='lg:text-4xl text-2xl font-semibold text-slate-700 mb-5'>UPDATE YOUR PROFILE</h1>
       <img
-        src={user.photoURL}
+        src={user?.photoURL}
         alt="Profile"
         className="rounded-full w-32 h-32 object-cover border-4 border-white shadow-lg"
       />
-      <h1 className="text-3xl font-bold mt-4">{user.displayName}</h1>
-      <p className="text-lg text-gray-600 mt-2">{user.email}</p>
+      <h1 className="text-3xl font-bold mt-4">{user?.displayName}</h1>
+      <p className="text-lg text-gray-600 mt-2">{user?.email}</p>
       <div className="mt-8 w-full max-w-md">
         <form onSubmit={handelUpdate}>
           <div className="mb-4">

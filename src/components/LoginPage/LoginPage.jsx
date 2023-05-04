@@ -35,7 +35,6 @@ const LoginPage = () => {
             else if(error.code === "auth/user-not-found"){
                 setError('User not found. Please try again.')
             }
-            // console.log(error);
         })
     }
 
