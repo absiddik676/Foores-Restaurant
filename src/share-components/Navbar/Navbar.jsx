@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/img/logo.svg'
 import { AuthContext } from '../../provider/AuthProvider';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 const Navbar = () => {
     const location = useLocation()
     const {user,logOut} = useContext(AuthContext)
@@ -53,10 +55,10 @@ const Navbar = () => {
                         user ? <button onClick={handleLogOut}>Log out</button> : <Link to='/login'> Login</Link>
                     }
 
-                        {user && <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />}
+                        {user && <img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" />}
                     </ul>
                 </div>
-
+                <Tooltip id="my-tooltip" />  
             </div>
 
         </div>
