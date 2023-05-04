@@ -8,10 +8,12 @@ import Footer from '../share-components/Footer/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <Toaster />
             <ScrollRestoration />
+            <Toaster />
+            
             <Navbar />
-            <div className='-[calc(100vh-500px)]'>
+            
+            <div className='-[calc(100vh-1369px)]'>
                 <Outlet />
             </div>
             <Footer />
