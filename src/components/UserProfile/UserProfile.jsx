@@ -45,7 +45,7 @@ const UserProfile = () => {
               type="text"
               id="name"
               name="name"
-              placeholder={user.displayName}
+              placeholder='Enter Your New Name'
               className="appearance-none border border-gray-500 rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full"
             />
           </div>
@@ -60,7 +60,7 @@ const UserProfile = () => {
               type="text"
               id="photo"
               name="photourl"
-              placeholder={user.photoURL}
+              placeholder='Enter your New Photo URL'
               className="appearance-none border border-gray-500 rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full"
             />
           </div>
