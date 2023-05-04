@@ -21,7 +21,7 @@ const ShowChefData = ({ chef }) => {
                     </div>
                     <div className="flex justify-center mt-4">
                         
-                        <Link to={`/recipes/${id}`}><button  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">View Recipes</button></Link>
+                        <Link to={`/recipes/${id}`}><button  className="bg-blue-500 outline-none text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">View Recipes</button></Link>
                     </div>
                 </div>
             </div>

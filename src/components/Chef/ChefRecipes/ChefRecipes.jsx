@@ -53,7 +53,7 @@ const ChefRecipes = () => {
                         <div className='flex items-center gap-2'>
                             <p className="text-gray-400 text-md">{like ? 'Dislike' : 'Like'} </p>
                             {
-                                like ? <AiFillLike type='btn' disabled={buttonsDisabled[id]} onClick={handleLike} className='text-2xl cursor-pointer text-blue-600' /> : <AiOutlineLike onClick={handleLike} className='text-2xl cursor-pointer' />
+                                like ? <AiFillLike  type='btn' disabled={buttonsDisabled[id]} onClick={handleLike} className='text-2xl outline-none cursor-pointer text-blue-600' /> : <AiOutlineLike onClick={handleLike} className='text-2xl cursor-pointer' />
                             }
                         </div>
                     </div>
