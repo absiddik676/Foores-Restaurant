@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import sliderImg1 from '../../assets/img/slide_home_1.jpg'
+import backgroundImage from '../../assets/img/slide_home_1.jpg'
 
 const Header = () => {
     return (
 
-        <div className="bg-cover bg-center bg-no-repeat h-screen relative -z-50 -top-16" style={{ backgroundImage: `url(${sliderImg1})` }}>
+        <div className="bg-cover bg-center bg-no-repeat h-screen relative -z-50 -top-16" style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="absolute inset-0 text-center flex justify-center items-center">
                 <div>

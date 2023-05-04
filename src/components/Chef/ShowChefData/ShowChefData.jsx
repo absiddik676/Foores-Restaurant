@@ -5,7 +5,7 @@ import LazyLoad from 'react-lazy-load';
 const ShowChefData = ({ chef }) => {
     const { id,chefPicture, chefName, yearsOfExperience, likes ,numberOfRecipes} = chef;
     return (
-        <LazyLoad height={450} offset={300} threshold={0.95} placeho>
+        <LazyLoad height={400} offset={300} threshold={0.95} placeho>
 
             <div className="w-full max-w-sm mx-auto m-5 bg-white rounded-md shadow-md overflow-hidden">
                 <img className="w-full h-48 object-cover object-center" src={chefPicture} alt="Chef Image" />
@@ -25,7 +25,6 @@ const ShowChefData = ({ chef }) => {
                     </div>
                 </div>
             </div>
-
 </LazyLoad>
     );
 };

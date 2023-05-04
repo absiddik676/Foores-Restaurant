@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        Italianno:[ 'Italianno', 'cursive']
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
