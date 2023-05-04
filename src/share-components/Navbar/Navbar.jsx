@@ -4,6 +4,7 @@ import logo from '../../assets/img/logo.svg'
 import { AuthContext } from '../../provider/AuthProvider';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import ActiveRoute from '../../routes/ActiveRoute/Activeroute';
 const Navbar = () => {
     const location = useLocation()
     const {user,logOut} = useContext(AuthContext)
@@ -49,10 +50,10 @@ const Navbar = () => {
                 <div className="navbar-end mr-10 ">
                     {/* <p>{user?.displayName}</p> */}
                     <ul className="menu menu-horizontal flex gap-7 px-1 items-center ml-9">
-                        <Link>Home</Link>
-                        <Link>Blog</Link>
+                        <ActiveRoute to='/'>Home</ActiveRoute>
+                        <ActiveRoute to='/blog'>Blog</ActiveRoute>
                         {
-                        user ? <button onClick={handleLogOut}>Log out</button> : <Link to='/login'> Login</Link>
+                        user ? <button onClick={handleLogOut}>Log out</button> : <ActiveRoute to='/login'>Login</ActiveRoute>
                     }
 
                         {user && <img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" />}
