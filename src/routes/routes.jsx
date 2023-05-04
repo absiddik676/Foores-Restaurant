@@ -7,6 +7,7 @@ import ChefRecipes from "../components/Chef/chefRecipes/chefRecipes";
 import PrivateRout from "./PrivateRout";
 import Blog from "../components/Blog/Blog";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import UserProfile from "../components/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             loader:({ params })=> fetch(`http://localhost:3000/chefsDetails/${params.id}.json`)
 
         },
+        {
+          path:'profile',
+          element:<UserProfile/>
+        }
         
       ]
     },

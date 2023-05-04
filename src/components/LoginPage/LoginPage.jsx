@@ -3,12 +3,14 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { toast } from 'react-hot-toast';
 
 const LoginPage = () => {
-    const { loginUser,signInWithGoogle,signInWithGithub } = useContext(AuthContext)
-    const [error,setError] = useState('')
-    const location = useLocation()
-    const navigate = useNavigate()
+    const { loginUser,signInWithGoogle,signInWithGithub,forgetPassword } = useContext(AuthContext)
+    const [error,setError] = useState('');
+    const [email,setEmail] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
     const from=location?.state?.from?.pathname || '/'
 
 
@@ -18,11 +20,13 @@ const LoginPage = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        setEmail(email)
         loginUser(email,password)
         .then(result =>{
             console.log(result.user);
             navigate(from,{replace:true}) 
+            e.target.reset();
+
         })
         .catch(error =>{
             if (error.code === "auth/wrong-password") {
@@ -55,6 +59,16 @@ const LoginPage = () => {
             navigate(from,{replace:true}) 
         })
         .catch(error =>{
+            console.log(error);
+        })
+    }
+
+    const handelResetPass = () =>{
+        forgetPassword(email)
+        .then(result =>{
+            toast.success("Password reset link has been sent to your email")
+        })
+        .catch(error=>{
             console.log(error);
         })
     }
@@ -108,7 +122,8 @@ const LoginPage = () => {
                         </button>
                     </form>
                     <hr className="my-6 border-gray-300 w-full" />
-                    <p className="mt-8">
+                    <p className='text-center'>forgot password , <Link onClick={handelResetPass} className='text-blue-700 font-semibold'>Reset Now</Link></p>
+                    <p className="mt-2 text-center">
                         Don't have an account?{" "}
                         <Link className='text-blue-700 font-semibold' to='/register'>Sign up</Link>
                     </p>

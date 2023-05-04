@@ -31,7 +31,9 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                updateNameAndPhoto(name, PhotoUrl)
+                updateNameAndPhoto(name, PhotoUrl);
+                e.target.reset();
+                
             })
             .catch(error => {
                 console.log(error);

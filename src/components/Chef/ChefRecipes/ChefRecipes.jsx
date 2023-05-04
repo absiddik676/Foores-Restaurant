@@ -76,19 +76,19 @@ const ChefRecipes = () => {
                 <tbody className="bg-white divide-y divide-gray-200">
                     {recipes.map((recipe, index) => (
                         <tr key={index} className={(index % 2 === 0) ? "bg-gray-50" : ""}>
-                            <td className="px-6 py-4 ">
+                            <td className="lg:px-6 lg:py-4 ">
                                 <div className="text-sm font-medium text-gray-900">{recipe.name}</div>
                             </td>
-                            <td className="px-6 py-4 ">
+                            <td className="lg:px-6 lg:py-4 ">
                                 <div className="text-sm font-medium text-gray-900">{recipe.ingredients.join(", ")}</div>
                             </td>
-                            <td className="px-6 py-4 ">
+                            <td className="lg:px-6 lg:py-4 ">
                                 <div className="text-sm font-medium text-gray-900">{recipe.cooking_method}</div>
                             </td>
-                            <td className="px-6 py-4 ">
+                            <td className="lg:px-6 lg:py-4 ">
                                 <div className="text-sm font-medium text-gray-900">{recipe.rating}</div>
                             </td>
-                            <td className="px-6  py-4 ">
+                            <td className="lg:px-6  lg:py-4 ">
                                 {/* <AiOutlineHeart onClick={()=>handleFavorite(recipe.name,recipe.id)} className='text-2xl ml-3 cursor-pointer' /> */}
                                 <button disabled={buttonsDisabled[index]}
                                     onClick={() => handleClick(index,recipe.name)}

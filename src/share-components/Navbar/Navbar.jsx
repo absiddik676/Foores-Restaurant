@@ -49,7 +49,7 @@ const Navbar = () => {
                         user ? <button onClick={handleLogOut}>Log out</button> : <ActiveRoute to='/login'>Login</ActiveRoute>
                     }
 
-                        {user && <img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" />}
+                        {user && <Link to='/profile'><img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" /></Link>}
                     </ul>
                 </div>
                 <Tooltip id="my-tooltip" />  
