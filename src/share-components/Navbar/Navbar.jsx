@@ -23,33 +23,26 @@ const Navbar = () => {
                 <div className="navbar-start ml-8">
                     <img src={logo} alt="" />
                     <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <label tabIndex={0} className="btn btn-ghost ml-32 lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Item 1</a></li>
-                            <li tabIndex={0}>
-                                <a className="justify-between">
-                                    Parent
-                                    <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                                </a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
-                            <h1>ss</h1>
-                            
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52">
+                        <ActiveRoute to='/'>Home</ActiveRoute>
+                        <ActiveRoute className="py-2 lg:py-0" to='/blog'>Blog</ActiveRoute>
+                        {
+                        user ? <button className='text-start mb-2' onClick={handleLogOut}>Log out</button> : <ActiveRoute to='/login'>Login</ActiveRoute>
+                    }
+
+                        {user && <img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" />}
                         </ul>
 
                     </div>
                   
 
                 </div>
-                <div className="navbar-end mr-10 ">
+                <div className="navbar-end  text-end mr-10 lg:block hidden">
                     {/* <p>{user?.displayName}</p> */}
-                    <ul className="menu menu-horizontal flex gap-7 px-1 items-center ml-9">
+                    <ul className="menu menu-horizontal  gap-7 px-1 items-center ">
                         <ActiveRoute to='/'>Home</ActiveRoute>
                         <ActiveRoute to='/blog'>Blog</ActiveRoute>
                         {

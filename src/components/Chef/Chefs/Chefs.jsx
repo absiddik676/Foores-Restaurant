@@ -19,10 +19,10 @@ const Chefs = () => {
     }, [])
     console.log(loading);
     return (
-        <div className='mx-11'>
+        <div className='lg:mx-11 mx-5'>
             <h1 className='text-5xl text-center font-semibold mb-8'>Expert Chefs</h1>
             {loading ? (<><div className='mb-96'><Spinner /></div></>) :
-                <div className='grid grid-cols-3 gap-6 mt-7'>
+                <div className='lg:grid grid-cols-3 gap-6 mt-7'>
                     {
                         data.map(chef => <ShowChefData key={chef.id} chef={chef}></ShowChefData>)
                     }
