@@ -8,7 +8,7 @@ const Reservation = () => {
                 <div style={{}} className="absolute inset-0 bg-black opacity-70"></div>
                 <div className="absolute inset-0 text-center ">
                     <div >
-                        <h1 className='font-Italianno text-5xl text-orange-500'>Book A Table</h1>
+                        <h1 className='font-Italianno text-3xl lg:text-5xl text-orange-500 mt-5 lg:mt-16'>Book A Table</h1>
                         <h1 className='text-6xl text-white mb-11'>Make a Reservation</h1>
                         <div className='lg:flex justify-center gap-6 '>
                             <select className="select border border-white bg-transparent text-white w-full max-w-xs">
