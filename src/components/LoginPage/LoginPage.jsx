@@ -115,7 +115,7 @@ const LoginPage = () => {
                         <p className='text-red-400 py-3'>{error}</p>
                         <button
                             type="submit"
-                            className="bg-primary hover:bg-primary-darker text-white font-bold py-2 px-4 rounded-full w-full"
+                            className="bg-primary hover:bg-primary-darker border-0 border-none  text-white font-bold py-2 px-4 rounded-full w-full"
                         >
                             Sign in
                         </button>
@@ -128,8 +128,8 @@ const LoginPage = () => {
                     </p>
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
-                        <button onClick={handleLoginWithGoogle} className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
-                        <button onClick={handelLoginWithGithub} className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
+                        <button onClick={handleLoginWithGoogle} className="bg-red-600 border-0 border-none  hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
+                        <button onClick={handelLoginWithGithub} className="bg-black border-0 border-none  hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
                     </div>
                 </div>
             </div>

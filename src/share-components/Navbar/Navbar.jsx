@@ -19,7 +19,7 @@ const Navbar = () => {
     }
     return (
         <div className='bg-hero bg-cover  bg-center bg-no-repeat'>
-            <div className={`navbar ${currentLocation === '/'?'text-white' : 'text-black bg-slate-500'}  font-semibold text-lg`}>
+            <div className={`navbar ${currentLocation === '/'?'text-white' : 'lg:text-black text-white bg-slate-500'}  font-semibold text-lg`}>
                 <div className="navbar-start ml-8">
                     <img src={logo} alt="" />
                     <div className="dropdown">
@@ -33,7 +33,7 @@ const Navbar = () => {
                         user ? <button className='text-start mb-2' onClick={handleLogOut}>Log out</button> : <ActiveRoute to='/login'>Login</ActiveRoute>
                     }
 
-                        {user && <img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" />}
+                        {user && <Link to='/profile'><img  data-tooltip-content={user?.displayName} data-tooltip-id="my-tooltip" className='w-10 h-10 rounded-full tooltip cursor-pointer' data-tip="error" src={user.photoURL} alt="" /></Link>}
                         </ul>
 
                     </div>

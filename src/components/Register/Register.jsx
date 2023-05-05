@@ -80,7 +80,7 @@ const Register = () => {
                             <input name='PhotoUrl' type="text" id="PhotoUrl" placeholder="Photo Url" className="w-full px-4 py-2 border rounded-md text-gray-700" />
                         </div>
 
-                        <button type="submit" className="bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark transition duration-200">Create Account</button>
+                        <button type="submit" className="bg-primary text-white border-0 border-none  py-2 px-4 rounded-md hover:bg-primary-dark transition duration-200">Create Account</button>
                     </form>
 
                     <div className="mt-4 text-gray-700 text-center">
@@ -90,8 +90,8 @@ const Register = () => {
                     <hr className="my-6 border-gray-300 w-full" />
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
-                        <button onClick={handleLoginWithGoogle} className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
-                        <button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
+                        <button onClick={handleLoginWithGoogle} className="bg-red-600 border-0 border-none hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
+                        <button className="bg-black hover:bg-gray-800 border-0 border-none  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
                     </div>
                 </div>
             </div>
