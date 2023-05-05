@@ -13,14 +13,12 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const from=location?.state?.from?.pathname || '/'
 
-
     const handleLogin = e => {
         e.preventDefault();
         setError('')
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        setEmail(email)
         loginUser(email,password)
         .then(result =>{
             console.log(result.user);
@@ -93,6 +91,7 @@ const LoginPage = () => {
                                 id="email"
                                 placeholder="you@example.com"
                                 name='email'
+                                onChange={(e)=>setEmail(e.target.value)}
                                 required
                             />
                         </div>

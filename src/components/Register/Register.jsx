@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Register = () => {
-    const { createUser, updateNameAndPhoto,signInWithGoogle } = useContext(AuthContext)
+    const { createUser, updateNameAndPhoto,signInWithGoogle,signInWithGithub } = useContext(AuthContext)
     const [error, setError] = useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from=location?.state?.from?.pathname || '/'
+
     const handleCreateAccount = e => {
         e.preventDefault();
         setError('')
@@ -20,7 +24,7 @@ const Register = () => {
             return
         }
         else if (password.length < 6) {
-            setError('password must have character');
+            setError('password must have 6 character');
             return
         }
 
@@ -47,6 +51,18 @@ const Register = () => {
         signInWithGoogle()
         .then(result =>{
             console.log(result.user);
+            navigate(from,{replace:true}) 
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
+
+    const handelLoginWithGithub = () =>{
+        signInWithGithub()
+        .then(result =>{
+            console.log(result);
+            navigate(from,{replace:true}) 
         })
         .catch(error =>{
             console.log(error);
@@ -91,7 +107,7 @@ const Register = () => {
                     <div className="text-center my-4">Or sign in with</div>
                     <div className="flex flex-col space-y-4">
                         <button onClick={handleLoginWithGoogle} className="bg-red-600 border-0 border-none hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGoogle className="mr-2" /> Sign in with Google</button>
-                        <button className="bg-black hover:bg-gray-800 border-0 border-none  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
+                        <button onClick={handelLoginWithGithub} className="bg-black hover:bg-gray-800 border-0 border-none  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"><FaGithub className="mr-2" /> Sign in with GitHub</button>
                     </div>
                 </div>
             </div>

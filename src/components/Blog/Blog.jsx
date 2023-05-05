@@ -13,7 +13,7 @@ const Blog = () => {
             <div className='lg:px-20 px-6 mt-11'>
                 <div >
                     <div className='flex items-center'>
-                        <h1 className='text-2xl font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>Differences between uncontrolled and controlled components? </h1>
+                        <h1 className='lg:text-xl text-lg font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>Differences between uncontrolled and controlled components? </h1>
                         <Pdf targetRef={ref} filename="code-example.pdf">
                             {({ toPdf }) => <AiFillFilePdf className='lg:text-2xl text-5xl text-red-500 cursor-pointer ml-3' onClick={toPdf} />}
                         </Pdf>
@@ -28,7 +28,7 @@ const Blog = () => {
 
                 </div>
                 <div className='flex items-center'>
-                    <h1 className='text-2xl font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>How to validate React props using PropTypes?</h1>
+                    <h1 className='lg:text-xl text-lg font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>How to validate React props using PropTypes?</h1>
                     <Pdf targetRef={ref} filename="code-example.pdf">
                         {({ toPdf }) => <AiFillFilePdf className='lg:text-2xl text-5xl text-red-500 cursor-pointer ml-3' onClick={toPdf} />}
                     </Pdf>
@@ -39,7 +39,7 @@ const Blog = () => {
 
 
                 <div className='flex items-center'>
-                    <h1 className='text-2xl font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'> Difference between nodejs and express js.?</h1>
+                    <h1 className='lg:text-xl text-lg  font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'> Difference between nodejs and express js.?</h1>
                     <Pdf targetRef={ref} filename="code-example.pdf">
                         {({ toPdf }) => <AiFillFilePdf  className='lg:text-2xl text-5xl text-red-500 cursor-pointer  ml-3' onClick={toPdf} />}
                     </Pdf>
@@ -51,7 +51,7 @@ const Blog = () => {
 
 
                 <div className='flex items-center'>
-                    <h1 className='text-2xl font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>What is a custom hook, and why will you create a custom hook?</h1>
+                    <h1 className='lg:text-2xl text-xl  font-semibold text-transparent  bg-clip-text bg-gradient-to-r from-[#7E90FE] to-[#9873FF]'>What is a custom hook, and why will you create a custom hook?</h1>
                     <Pdf targetRef={ref} filename="code-example.pdf">
                         {({ toPdf }) => <AiFillFilePdf className='lg:text-2xl text-5xl text-red-500 cursor-pointer ml-3' onClick={toPdf} />}
                     </Pdf>
