@@ -18,9 +18,9 @@ const Navbar = () => {
         })
     }
     return (
-        <div className='bg-hero bg-cover  bg-center bg-no-repeat'>
-            <div className={`navbar ${currentLocation === '/'?'text-white' : 'lg:text-black text-white bg-slate-500'}  font-semibold text-lg`}>
-                <div className="navbar-start ml-8">
+        <div className='bg-hero bg-cover bg-center bg-no-repeat'>
+            <div className={`navbar ${currentLocation === '/'?'text-white' : 'lg:text-black text-white bg-slate-500'} ml-0 mx-5 min-h-0 w-12/12 font-semibold text-lg`}>
+                <div className="navbar-start ">
                     <img src={logo} alt="" />
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost ml-32 lg:hidden">
@@ -45,6 +45,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal  gap-7 px-1 items-center ">
                         <ActiveRoute to='/'>Home</ActiveRoute>
                         <ActiveRoute to='/blog'>Blog</ActiveRoute>
+                        <ActiveRoute to='/about'>About</ActiveRoute>
                         {
                         user ? <button className='outline-none border-none ' onClick={handleLogOut}>Log out</button> : <ActiveRoute to='/login'>Login</ActiveRoute>
                     }

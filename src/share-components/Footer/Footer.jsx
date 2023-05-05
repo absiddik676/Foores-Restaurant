@@ -51,7 +51,7 @@ const Footer = () => {
                         </div>
                     </div>
                     
-                    <p className="text-center">&copy;  Foores Restaurant. All rights reserved.</p>
+                    <p className="text-center mt-8">&copy;  Foores Restaurant. All rights reserved.</p>
                 </div>
             </footer>
 
