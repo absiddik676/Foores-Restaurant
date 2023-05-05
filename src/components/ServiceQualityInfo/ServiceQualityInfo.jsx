@@ -2,8 +2,9 @@ import React from 'react';
 
 const ServiceQualityInfo = () => {
     return (
-        <div className='lg:flex gap-5 mx-12 my-8'>
-            <div className="flex justify-center mb-5 lg:mb-0">
+        <div className='mx-11'>
+            <div className='lg:grid lg:grid-cols-3 gap-5 mx-auto my-8'>
+            <div className="flex justify-center items-center mb-5 lg:mb-0">
                 <div className="max-w-lg rounded-lg overflow-hidden shadow-lg bg-white transform hover:-translate-y-1 hover:shadow-xl transition-all duration-500 relative">
                     <img className=" object-cover pl-8" src="https://barakahit.net/html/brulee/assets/img/icons/features-icon-1.svg" alt="Card image" />
                     <div className="px-6 py-4">
@@ -34,6 +35,7 @@ const ServiceQualityInfo = () => {
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-purple-500 transition-all duration-500 hover:w-8"></div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

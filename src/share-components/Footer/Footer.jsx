@@ -45,8 +45,8 @@ const Footer = () => {
                         <div className="w-full lg:w-full ">
                             <h3 className="text-lg font-bold">Keep in touch</h3>
                             <ul className="mt-4 flex items-center">
-                                <input placeholder='Your Email' type="text" className='py-2 outline-none px-3 rounded-s-md bg-gray-700' />
-                                <button className='bg-yellow-800 py-3 px-3 rounded-e-md'><FaArrowCircleRight /></button>
+                                <input placeholder='Your Email' type="text" className='py-2 border-none outline-none px-3 rounded-s-md bg-gray-700' />
+                                <button className='bg-yellow-800 border-none py-3 px-3 rounded-e-md'><FaArrowCircleRight /></button>
                             </ul>
                         </div>
                     </div>

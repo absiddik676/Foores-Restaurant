@@ -1,14 +1,26 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { useState } from 'react';
 
 const UserProfile = () => {
-    const {user,updateNameAndPhoto} = useContext(AuthContext)
+    const {user,updateNameAndPhoto} = useContext(AuthContext);
+    const [error, setError] = useState('')
     const handelUpdate = (e) =>{
         e.preventDefault();
         const form = e.target;
+        setError('')
         const name = form.name.value;
-        const photoURL = form.photourl.value;
+        let photoURL = form.photourl.value;
+
+        if(name.length === 0 ){
+          setError('Please Add your name');
+          return;
+        }
+        if(photoURL.length === 0){
+          photoURL = 'https://picsum.photos/200/300'
+      }
+
         updateNameAndPhoto(name,photoURL)
 
         .then(()=>{
@@ -63,15 +75,19 @@ const UserProfile = () => {
               className="appearance-none border border-gray-500 rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline w-full"
             />
           </div>
-          <div className="flex justify-end">
+          
+          <div className="flex justify-between">
+          <p className='text-red-500'>{error}</p>
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
              Update change
             </button>
+            
           </div>
         </form>
+          
       </div>
     </div>
         </div>

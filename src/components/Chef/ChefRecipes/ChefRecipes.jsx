@@ -92,7 +92,7 @@ const ChefRecipes = () => {
                                 {/* <AiOutlineHeart onClick={()=>handleFavorite(recipe.name,recipe.id)} className='text-2xl ml-3 cursor-pointer' /> */}
                                 <button disabled={buttonsDisabled[index]}
                                     onClick={() => handleClick(index,recipe.name)}
-                                    className={`${buttonsDisabled[index] ? 'cursor-not-allowed' : 'cursor-pointer'}`}>{buttonsDisabled[index] ? <FcLike className='text-2xl' /> : <AiOutlineHeart className='text-2xl' />}</button>
+                                    className={`${buttonsDisabled[index] ? 'cursor-not-allowed border-none border-0' : 'cursor-pointer border-none border-0'}`}>{buttonsDisabled[index] ? <FcLike className='text-2xl border-none' /> : <AiOutlineHeart className='text-2xl' />}</button>
                             </td>
                         </tr>
                     ))}
